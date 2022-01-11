@@ -75,6 +75,19 @@ export default function DrinkRecipe(props) {
     return doneRecipesArray.some((item) => item.id === id);
   }
 
+  function handleStartRecipe() {
+    const ProgRecipe = [{
+      id: idDrink,
+      type: 'bebida',
+      name: strDrink,
+      checks: [],
+    }];
+
+    const saveInProgRecipesArray = [...inProgRecipesArray, ...ProgRecipe];
+    const saveInProgRecipes = JSON.stringify(saveInProgRecipesArray);
+    localStorage.setItem('inProgressRecipes', saveInProgRecipes);
+  }
+
   return (
     <div className="recipe-details">
       <h1 data-testid="recipe-title">
@@ -164,8 +177,8 @@ export default function DrinkRecipe(props) {
               data-testid="start-recipe-btn"
               type="button"
               id="start-btn"
+              onClick={ handleStartRecipe }
               className="footer-btns"
-              onClick={ handleClick }
             >
               {isDone() === false && isStart() === true ? 'Continue Recipe'
                 : 'Start Recipe' }

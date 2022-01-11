@@ -125,7 +125,6 @@ export default function DrinkInProgress(props) {
         width="320"
         height="240"
       />
-      <br />
       <div>
         <button
           type="button"
@@ -158,13 +157,11 @@ export default function DrinkInProgress(props) {
               />)}
         </button>
       </div>
-      <br />
       <span data-testid="recipe-category">
         Category:
         { ' ' }
         {strAlcoholic}
       </span>
-      <br />
       <Ingredients
         measureArray={ measureArray }
         ingredientArray={ ingredientArray }
@@ -176,7 +173,6 @@ export default function DrinkInProgress(props) {
         { ' ' }
         { strInstructions }
       </span>
-      <br />
       <button
         data-testid="finish-recipe-btn"
         type="button"

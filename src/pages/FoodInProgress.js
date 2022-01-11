@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
+import DrinksAndFoodsContext from '../context/Foods&Drinks';
 import { apiMealsRecipe } from '../servicesContext/mealsApi';
 import Ingredients from '../components/FoodIngredientsInProgr';
 import shareIcon from '../images/shareIcon.svg';
@@ -11,7 +12,7 @@ export default function FoodInProgress(props) {
   const { match: { params: { id } } } = props;
   const [mealRecipe, setMealsRecipe] = useState({});
   const [shareButton, setShareButton] = useState(false);
-  const [isChecked, setIsChecked] = useState([]);
+  const { isChecked } = useContext(DrinksAndFoodsContext);
 
   const history = useHistory();
 
@@ -154,15 +155,12 @@ export default function FoodInProgress(props) {
         { ' ' }
         {strCategory}
       </span>
-      <Ingredients mealRecipe={ Object.entries(mealRecipe) } />
       <Ingredients
         id={ id }
         measureArray={ measureArray }
         ingredientArray={ ingredientArray }
-        isChecked={ isChecked }
         idMeal={ idMeal }
         strMeal={ strMeal }
-        setIsChecked={ setIsChecked }
       />
       <span data-testid="instructions">
         Instructions:
