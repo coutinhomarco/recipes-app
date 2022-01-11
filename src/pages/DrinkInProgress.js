@@ -114,8 +114,7 @@ export default function DrinkInProgress(props) {
   }
 
   return (
-    <div>
-      Recipe for Drinks in Process
+    <div className="recipe-details">
       <h1 data-testid="recipe-title">
         {strDrink}
       </h1>
@@ -127,36 +126,38 @@ export default function DrinkInProgress(props) {
         height="240"
       />
       <br />
-      <button
-        type="button"
-        id="share-btn"
-        data-testid="share-btn"
-        onClick={ handleShare }
-      >
-        <img src={ shareIcon } alt="Share Icon" />
-      </button>
-      {shareButton && <span>Link copiado!</span>}
-      <button
-        type="button"
-        id="favorite-btn"
-        onClick={ handleFavorite }
-        src={ favoriteButton ? { blackHeartIcon } : { whiteHeartIcon } }
-      >
-        { favoriteButton
-          ? (
-            <img
-              data-testid="favorite-btn"
-              src={ blackHeartIcon }
-              alt="Black Heart Icon"
-              width="26px"
-            />)
-          : (
-            <img
-              data-testid="favorite-btn"
-              src={ whiteHeartIcon }
-              alt="White Heart Icon"
-            />)}
-      </button>
+      <div>
+        <button
+          type="button"
+          id="share-btn"
+          data-testid="share-btn"
+          onClick={ handleShare }
+        >
+          <img src={ shareIcon } alt="Share Icon" />
+        </button>
+        {shareButton && <span>Link copiado!</span>}
+        <button
+          type="button"
+          id="favorite-btn"
+          onClick={ handleFavorite }
+          src={ favoriteButton ? { blackHeartIcon } : { whiteHeartIcon } }
+        >
+          { favoriteButton
+            ? (
+              <img
+                data-testid="favorite-btn"
+                src={ blackHeartIcon }
+                alt="Black Heart Icon"
+                width="26px"
+              />)
+            : (
+              <img
+                data-testid="favorite-btn"
+                src={ whiteHeartIcon }
+                alt="White Heart Icon"
+              />)}
+        </button>
+      </div>
       <br />
       <span data-testid="recipe-category">
         Category:
@@ -180,6 +181,7 @@ export default function DrinkInProgress(props) {
         data-testid="finish-recipe-btn"
         type="button"
         id="finish-btn"
+        className="footer-btns"
         onClick={ handleRecipeComplete }
         disabled={ isChecked.length !== ingredientArray.length }
       >
