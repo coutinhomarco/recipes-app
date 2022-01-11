@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
+import DrinksAndFoodsContext from '../context/Foods&Drinks';
 import { apiMealsRecipe } from '../servicesContext/mealsApi';
 import Ingredients from '../components/FoodIngredientsInProgr';
 import shareIcon from '../images/shareIcon.svg';
@@ -11,7 +12,7 @@ export default function FoodInProgress(props) {
   const { match: { params: { id } } } = props;
   const [mealRecipe, setMealsRecipe] = useState({});
   const [shareButton, setShareButton] = useState(false);
-  const [isChecked, setIsChecked] = useState([]);
+  const { isChecked } = useContext(DrinksAndFoodsContext);
 
   const history = useHistory();
 
@@ -107,7 +108,6 @@ export default function FoodInProgress(props) {
 
   return (
     <div className="recipe-details">
-      Recipe for Food in Process
       <h1 data-testid="recipe-title">
         {strMeal}
       </h1>
@@ -118,63 +118,60 @@ export default function FoodInProgress(props) {
         width="320"
         height="240"
       />
-      <br />
-      <button
-        type="button"
-        id="share-btn"
-        data-testid="share-btn"
-        onClick={ handleShare }
-      >
-        <img src={ shareIcon } alt="Share Icon" />
-      </button>
-      {shareButton && <span>Link copiado!</span>}
-      <button
-        type="button"
-        id="favorite-btn"
-        onClick={ handleFavorite }
-        src={ favoriteButton ? { blackHeartIcon } : { whiteHeartIcon } }
-      >
-        { favoriteButton
-          ? (
-            <img
-              data-testid="favorite-btn"
-              src={ blackHeartIcon }
-              alt="Black Heart Icon"
-              width="26px"
-            />)
-          : (
-            <img
-              data-testid="favorite-btn"
-              src={ whiteHeartIcon }
-              alt="White Heart Icon"
-            />)}
-      </button>
-      <br />
+      <div>
+        <button
+          type="button"
+          id="share-btn"
+          data-testid="share-btn"
+          onClick={ handleShare }
+        >
+          <img src={ shareIcon } alt="Share Icon" />
+        </button>
+        {shareButton && <span>Link copiado!</span>}
+        <button
+          type="button"
+          id="favorite-btn"
+          onClick={ handleFavorite }
+          src={ favoriteButton ? { blackHeartIcon } : { whiteHeartIcon } }
+        >
+          { favoriteButton
+            ? (
+              <img
+                data-testid="favorite-btn"
+                src={ blackHeartIcon }
+                alt="Black Heart Icon"
+                width="26px"
+              />)
+            : (
+              <img
+                data-testid="favorite-btn"
+                src={ whiteHeartIcon }
+                alt="White Heart Icon"
+              />)}
+        </button>
+      </div>
       <span data-testid="recipe-category">
         Category:
         { ' ' }
         {strCategory}
       </span>
-      <br />
       <Ingredients
         id={ id }
         measureArray={ measureArray }
         ingredientArray={ ingredientArray }
-        isChecked={ isChecked }
         idMeal={ idMeal }
         strMeal={ strMeal }
-        setIsChecked={ setIsChecked }
       />
       <span data-testid="instructions">
         Instructions:
         { ' ' }
         { strInstructions }
       </span>
-      <br />
       <button
         data-testid="finish-recipe-btn"
         type="button"
         id="finish-btn"
+        className="footer-btns"
         onClick={ handleRecipeComplete }
         disabled={ isChecked.length !== ingredientArray.length }
       >

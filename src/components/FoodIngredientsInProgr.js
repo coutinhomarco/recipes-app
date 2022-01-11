@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import DrinksAndFoodsContext from '../context/Foods&Drinks';
 
 export default function Ingredients(props) {
   const { ingredientArray, measureArray,
-    isChecked, setIsChecked,
     idMeal, strMeal, id } = props;
+  const { isChecked, setIsChecked, inProgRecipes } = useContext(DrinksAndFoodsContext);
 
-  const inProgRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'));
   const inProgRecipesArray = inProgRecipes || [];
+  /*   const recipeObject = inProgRecipesArray.find((recipe) => recipe.id === id);
+  const checksArray = recipeObject ? recipeObject.checks : [];
+  console.log(checksArray); */
 
   function checks(ingredients) {
-    const removeFromArray = inProgRecipesArray.filter((item) => item.id !== id);
-    const removedRecipe = JSON.stringify(removeFromArray);
-    localStorage.setItem('inProgressRecipes', removedRecipe);
-
     setIsChecked([...isChecked, ingredients[1]]);
+    const removeFromArray = inProgRecipesArray.filter((item) => item.id !== id);
 
     const ProgRecipe = [{
       id: idMeal,
@@ -23,21 +23,19 @@ export default function Ingredients(props) {
       checks: isChecked,
     }];
 
-    const saveInProgRecipesArray = [...inProgRecipesArray, ...ProgRecipe];
+    const saveInProgRecipesArray = [...removeFromArray, ...ProgRecipe];
     const saveInProgRecipes = JSON.stringify(saveInProgRecipesArray);
     localStorage.setItem('inProgressRecipes', saveInProgRecipes);
   }
 
   return (
     <>
-      {/* {console.log(inProgRecipesArray)} */}
       <span>
-        Ingredients:
-        { ' ' }
+        <p>Ingredients:</p>
       </span>
       <ul>
         {
-          ingredientArray.map((ingredients, index) => (
+          ingredientArray && ingredientArray.map((ingredients, index) => (
             <li
               key={ index }
               data-testid={ `${index}-ingredient-step` }
@@ -51,23 +49,6 @@ export default function Ingredients(props) {
               />
             </li>))
         }
-        {/* {
-          ingredientArray.map((ingredients, index) => (
-            <li
-              key={ index }
-              data-testid={ `${index}-ingredient-step` }
-            >
-              {`${measureArray[index][1]} ${ingredients[1]}`}
-              { ' ' }
-              <input
-                type="checkbox"
-                onClick={ () => checks(ingredients) }
-                checked={ inProgRecipesArray === [] ? (
-                  isChecked.includes(ingredients[1]))
-                  : inProgRecipesArray.includes(ingredients[1]) }
-              />
-            </li>))
-        } */}
       </ul>
     </>
   );

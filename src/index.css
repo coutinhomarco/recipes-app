@@ -61,6 +61,8 @@ code {
   border: none;
   border-radius: 2.5px;
   color: black;
+  font-weight: 700;
+  height: 20px;
   margin: 5px;
   outline: 1px solid black;
   width: 90%;
@@ -70,11 +72,12 @@ code {
   background-color: white;
   border: none;
   border-radius: 2.5px;
+  font-weight: 700;
+  height: 20px;
   margin-top: 20px;
   outline: 1px solid black;
   width: 45%;
 }
-
 
 header {
   align-items: center;
@@ -237,21 +240,37 @@ footer {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding: 10px;
+  justify-content: center;
   width: 100%;
 }
 
-.recipe-details img, .recipe-details h1, .recipe-details button , .recipe-details span{
+.recipe-details h1, .recipe-details button , .recipe-details span{
   margin: 5px;
 }
 
+.recipe-details .instruction {
+  margin-bottom: 5px;
+}
+
 .recipe-details #instructions-p {
-  margin-top: 5px;
+  align-self: center;
+  margin: auto;
   text-align: justify;
   width: 95%;
 }
 
+.recipe-details .footer-btns {
+  background-color: rgb(190, 190, 190);
+  border: none;
+  font-size: x-large;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 50px;
+  width: 100%;
+}
+
 .container {
+  margin-bottom: 60px;
   max-width: 340px;
 }
 
@@ -294,7 +313,6 @@ footer {
   font-weight: bold;
   margin: 10px 0;
 }
-
 
 @media screen and (min-width: 360px) and (max-width: 640px){
   .recipe-card {

@@ -18,7 +18,7 @@ export default function Ingredients(props) {
 
   return (
     <>
-      <span>
+      <span className="ul-left">
         Ingredients:
         { ' ' }
       </span>

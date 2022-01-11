@@ -24,7 +24,7 @@ export default function FavoriteRecipes() {
   return (
     <>
       <Header title="Receitas Favoritas" />
-      <div className="parent-cards">
+      <div className="categories-btns">
         <button
           data-testid="filter-by-all-btn"
           className="category-btn"
@@ -50,21 +50,23 @@ export default function FavoriteRecipes() {
           Drinks
         </button>
       </div>
-      {
-        favorites && (favorites.map((recipe, index) => (
-          <Cards
-            key={ recipe.id }
-            index={ index }
-            alcoholicOrNot={ recipe.alcoholicOrNot }
-            area={ recipe.area }
-            category={ recipe.category }
-            id={ recipe.id }
-            image={ recipe.image }
-            name={ recipe.name }
-            type={ recipe.type }
-          />
-        )))
-      }
+      <div className="parent-cards">
+        {
+          favorites && (favorites.map((recipe, index) => (
+            <Cards
+              key={ recipe.id }
+              index={ index }
+              alcoholicOrNot={ recipe.alcoholicOrNot }
+              area={ recipe.area }
+              category={ recipe.category }
+              id={ recipe.id }
+              image={ recipe.image }
+              name={ recipe.name }
+              type={ recipe.type }
+            />
+          )))
+        }
+      </div>
     </>
   );
 }

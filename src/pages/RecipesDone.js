@@ -23,7 +23,7 @@ export default function FavoriteRecipes() {
   return (
     <>
       <Header title="Receitas Feitas" />
-      <div className="parent-cards">
+      <div className="categories-btns">
         <button
           type="button"
           className="category-btn"

@@ -99,6 +99,7 @@ export default function FoodRecipe(props) {
         data-testid="recipe-photo"
         src={ strMealThumb }
         alt={ strMeal }
+        className="recipe-photo"
         width="320"
         height="240"
       />
@@ -141,7 +142,7 @@ export default function FoodRecipe(props) {
       </span>
       <Ingredients mealRecipe={ Object.entries(mealRecipe) } />
       <span data-testid="instructions">
-        Instructions:
+        <p className="instruction">Instructions:</p>
         { ' ' }
         <p id="instructions-p">{ strInstructions }</p>
       </span>
@@ -188,6 +189,7 @@ export default function FoodRecipe(props) {
               data-testid="start-recipe-btn"
               type="button"
               id="start-btn"
+              className="footer-btns"
               onClick={ handleStartRecipe }
             >
               {isDone() === false && isStart() === true ? 'Continue Recipe'
