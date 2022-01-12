@@ -270,6 +270,7 @@ footer {
   
   .recipe-details iframe{
     align-self: center;
+    margin: 15px 0;
   }
 
   .recipe-details h1{
@@ -280,20 +281,6 @@ footer {
     align-self: center;
   }
 }
-/* 
-#iframe-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center
-}
-
-#iframe-container span{
-  align-self: flex-start;
-}
-
-.recipe-details iframe{
-  align-self: center;
-} */
 
 .recipe-details h1, .recipe-details button , .recipe-details span{
   margin: 5px;
