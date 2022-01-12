@@ -219,17 +219,18 @@ footer {
   border-right: 1px solid rgb(190, 190, 190);
   border-left: 1px solid rgb(190, 190, 190);
   flex-grow: 2;
+  font-size: 13px !important;
   width: 15px;
 }
 
 .explore-btns {
   align-items: center;
   display: flex;
+  font-size: 10px;
 }
 
 .explore-btn {
   font-family: 'Montserrat', -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  font-size: large;
   margin: 10px;
   height: 70px;
   text-align: center;
