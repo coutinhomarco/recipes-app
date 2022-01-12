@@ -301,6 +301,7 @@ h4{
 .recipe-details #instructions-p {
   align-self: center;
   margin: auto;
+  margin-bottom: 15px;
   text-align: justify;
   width: 95%;
 }
