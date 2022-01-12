@@ -135,7 +135,9 @@ export default function DrinkRecipe(props) {
         </button>
       </div>
       <h4 data-testid="recipe-category">
-        Category:
+        <p>
+          Category:
+        </p>
       </h4>
       { ' ' }
       <p>{strAlcoholic}</p>

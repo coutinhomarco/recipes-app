@@ -282,6 +282,14 @@ footer {
   }
 }
 
+h4{
+  margin: 15px;
+}
+
+.recipe-details p{
+  margin: 0 25px;
+}
+
 .recipe-details h1, .recipe-details button , .recipe-details span{
   margin: 5px;
 }
