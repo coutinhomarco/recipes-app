@@ -134,19 +134,20 @@ export default function DrinkRecipe(props) {
               />)}
         </button>
       </div>
-      <span data-testid="recipe-category">
+      <h4 data-testid="recipe-category">
         Category:
-        { ' ' }
-        <p>{strAlcoholic}</p>
-      </span>
+      </h4>
+      { ' ' }
+      <p>{strAlcoholic}</p>
+
       <Ingredients drinkRecipe={ Object.entries(drinkRecipe) } />
       <span data-testid="instructions">
-        <p className="instruction">Instructions:</p>
+        <h4 className="instruction">Instructions:</h4>
         { ' ' }
         <p id="instructions-p">{ strInstructions }</p>
       </span>
       <div className="carousel-container">
-        <span>Side Meals Recommendeds:</span>
+        <h4>Side Meals Recommendeds:</h4>
         <div className="container">
           <div className="carousel">
             { meals && meals.slice(0, SIX).map((meal, index) => (

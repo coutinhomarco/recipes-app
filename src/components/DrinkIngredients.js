@@ -18,10 +18,10 @@ export default function Ingredients(props) {
 
   return (
     <>
-      <span>
+      <h4>
         Ingredients:
         { ' ' }
-      </span>
+      </h4>
       <ul>
         {
           ingredientArray.map((ingredients, index) => (

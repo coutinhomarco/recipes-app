@@ -137,14 +137,15 @@ export default function FoodRecipe(props) {
                 />)}
           </button>
         </div>
-        <span data-testid="recipe-category">
+        <h4 data-testid="recipe-category">
           Category:
-          { ' ' }
-          <p>{ strCategory }</p>
-        </span>
+        </h4>
+        { ' ' }
+        <p>{ strCategory }</p>
+
         <Ingredients mealRecipe={ Object.entries(mealRecipe) } />
         <span data-testid="instructions">
-          <p className="instruction">Instructions:</p>
+          <h4 className="instruction">Instructions:</h4>
           { ' ' }
           <p id="instructions-p">{ strInstructions }</p>
         </span>
@@ -158,7 +159,7 @@ export default function FoodRecipe(props) {
           Your browser does not support the video tag.
         </iframe>
         <div className="carousel-container">
-          <span>Side Dishes Recommendeds:</span>
+          <h4>Side Dishes Recommendeds:</h4>
           <br />
           <div className="container">
             <div className="carousel">
