@@ -91,94 +91,97 @@ export default function FoodRecipe(props) {
   }
 
   return (
-    <div className="recipe-details">
-      <h1 data-testid="recipe-title">
-        {strMeal}
-      </h1>
-      <img
-        data-testid="recipe-photo"
-        src={ strMealThumb }
-        alt={ strMeal }
-        className="recipe-photo"
-        width="320"
-        height="240"
-      />
-      <div>
-        <button
-          type="button"
-          id="share-btn"
-          data-testid="share-btn"
-          onClick={ handleShare }
+    <>
+      <div className="recipe-details">
+        <header />
+        <h1 data-testid="recipe-title">
+          {strMeal}
+        </h1>
+        <img
+          data-testid="recipe-photo"
+          src={ strMealThumb }
+          alt={ strMeal }
+          className="recipe-photo"
+          width="320"
+          height="240"
+        />
+        <div>
+          <button
+            type="button"
+            id="share-btn"
+            data-testid="share-btn"
+            onClick={ handleShare }
+          >
+            <img src={ shareIcon } alt="Share Icon" />
+          </button>
+          {shareButton && <span>Link copiado!</span>}
+          <button
+            type="button"
+            id="favorite-btn"
+            onClick={ handleFavorite }
+            src={ favoriteButton ? { blackHeartIcon } : { whiteHeartIcon } }
+          >
+            { favoriteButton
+              ? (
+                <img
+                  data-testid="favorite-btn"
+                  src={ blackHeartIcon }
+                  alt="Black Heart Icon"
+                  width="26px"
+                />)
+              : (
+                <img
+                  data-testid="favorite-btn"
+                  src={ whiteHeartIcon }
+                  alt="White Heart Icon"
+                />)}
+          </button>
+        </div>
+        <span data-testid="recipe-category">
+          Category:
+          { ' ' }
+          <p>{ strCategory }</p>
+        </span>
+        <Ingredients mealRecipe={ Object.entries(mealRecipe) } />
+        <span data-testid="instructions">
+          <p className="instruction">Instructions:</p>
+          { ' ' }
+          <p id="instructions-p">{ strInstructions }</p>
+        </span>
+        <iframe
+          title="video"
+          data-testid="video"
+          width="320"
+          height="240"
+          src={ `https://www.youtube.com/embed/${link !== undefined && link.split('v=')[1]}` }
         >
-          <img src={ shareIcon } alt="Share Icon" />
-        </button>
-        {shareButton && <span>Link copiado!</span>}
-        <button
-          type="button"
-          id="favorite-btn"
-          onClick={ handleFavorite }
-          src={ favoriteButton ? { blackHeartIcon } : { whiteHeartIcon } }
-        >
-          { favoriteButton
-            ? (
-              <img
-                data-testid="favorite-btn"
-                src={ blackHeartIcon }
-                alt="Black Heart Icon"
-                width="26px"
-              />)
-            : (
-              <img
-                data-testid="favorite-btn"
-                src={ whiteHeartIcon }
-                alt="White Heart Icon"
-              />)}
-        </button>
-      </div>
-      <span data-testid="recipe-category">
-        Category:
-        { ' ' }
-        <p>{ strCategory }</p>
-      </span>
-      <Ingredients mealRecipe={ Object.entries(mealRecipe) } />
-      <span data-testid="instructions">
-        <p className="instruction">Instructions:</p>
-        { ' ' }
-        <p id="instructions-p">{ strInstructions }</p>
-      </span>
-      <iframe
-        title="video"
-        data-testid="video"
-        width="320"
-        height="240"
-        src={ `https://www.youtube.com/embed/${link !== undefined && link.split('v=')[1]}` }
-      >
-        Your browser does not support the video tag.
-      </iframe>
-      <div>
-        <span>Side Dishes Recommendeds:</span>
-        <br />
-        <div className="container">
-          <div className="carousel">
-            { drink && drink.slice(0, SIX).map((drinks, index) => (
-              <div
-                data-testid={ `${index}-recomendation-card` }
-                key={ index }
-                className="item"
-              >
-                <div className="image">
-                  <img src={ drinks.strDrinkThumb } alt="" />
+          Your browser does not support the video tag.
+        </iframe>
+        <div className="carousel-container">
+          <span>Side Dishes Recommendeds:</span>
+          <br />
+          <div className="container">
+            <div className="carousel">
+              { drink && drink.slice(0, SIX).map((drinks, index) => (
+                <div
+                  data-testid={ `${index}-recomendation-card` }
+                  key={ index }
+                  className="item"
+                >
+                  <div className="image">
+                    <img src={ drinks.strDrinkThumb } alt="" />
+                  </div>
+                  <div className="info">
+                    <span
+                      data-testid={ `${index}-recomendation-title` }
+                      className="name"
+                    >
+                      { drinks.strDrink }
+                    </span>
+                  </div>
                 </div>
-                <div className="info">
-                  <span
-                    data-testid={ `${index}-recomendation-title` }
-                    className="name"
-                  >
-                    { drinks.strDrink }
-                  </span>
-                </div>
-              </div>
-            )) }
+              )) }
+            </div>
           </div>
         </div>
       </div>
@@ -196,7 +199,7 @@ export default function FoodRecipe(props) {
                 : 'Start Recipe' }
             </button>)}
       </Link>
-    </div>
+    </>
   );
 }
 

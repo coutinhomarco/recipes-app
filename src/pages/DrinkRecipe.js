@@ -90,6 +90,7 @@ export default function DrinkRecipe(props) {
 
   return (
     <div className="recipe-details">
+      <header />
       <h1 data-testid="recipe-title">
         {strDrink}
       </h1>
@@ -144,7 +145,7 @@ export default function DrinkRecipe(props) {
         { ' ' }
         <p id="instructions-p">{ strInstructions }</p>
       </span>
-      <div>
+      <div className="carousel-container">
         <span>Side Meals Recommendeds:</span>
         <div className="container">
           <div className="carousel">
