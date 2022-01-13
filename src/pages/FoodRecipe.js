@@ -91,20 +91,21 @@ export default function FoodRecipe(props) {
   }
 
   return (
-    <>
-      <div className="recipe-details">
-        <header />
-        <h1 data-testid="recipe-title">
-          {strMeal}
-        </h1>
-        <img
-          data-testid="recipe-photo"
-          src={ strMealThumb }
-          alt={ strMeal }
-          className="recipe-photo"
-          width="320"
-          height="240"
-        />
+
+    <div className="recipe-details">
+      <header />
+      <h1 data-testid="recipe-title">
+        {strMeal}
+      </h1>
+      <img
+        data-testid="recipe-photo"
+        src={ strMealThumb }
+        alt={ strMeal }
+        className="recipe-photo"
+        width="320"
+        height="240"
+      />
+      <div id="button-category">
         <div>
           <button
             type="button"
@@ -137,52 +138,56 @@ export default function FoodRecipe(props) {
                 />)}
           </button>
         </div>
-        <h4 data-testid="recipe-category">
-          Category:
-        </h4>
-        { ' ' }
-        <p>{ strCategory }</p>
+        <div>
+          <h4 data-testid="recipe-category">
+            Category:
+          </h4>
+          <p>{ strCategory }</p>
+        </div>
+      </div>
+      <div id="intruction-category">
+        <div id="instruction-container">
 
-        <Ingredients mealRecipe={ Object.entries(mealRecipe) } />
-        <span data-testid="instructions">
+          <Ingredients mealRecipe={ Object.entries(mealRecipe) } />
+        </div>
+        <div id="intruction-container">
           <h4 className="instruction">Instructions:</h4>
-          { ' ' }
           <p id="instructions-p">{ strInstructions }</p>
-        </span>
-        <iframe
-          title="video"
-          data-testid="video"
-          width="320"
-          height="240"
-          src={ `https://www.youtube.com/embed/${link !== undefined && link.split('v=')[1]}` }
-        >
-          Your browser does not support the video tag.
-        </iframe>
-        <div className="carousel-container">
-          <h4>Side Dishes Recommendeds:</h4>
-          <br />
-          <div className="container">
-            <div className="carousel">
-              { drink && drink.slice(0, SIX).map((drinks, index) => (
-                <div
-                  data-testid={ `${index}-recomendation-card` }
-                  key={ index }
-                  className="item"
-                >
-                  <div className="image">
-                    <img src={ drinks.strDrinkThumb } alt="" />
-                  </div>
-                  <div className="info">
-                    <span
-                      data-testid={ `${index}-recomendation-title` }
-                      className="name"
-                    >
-                      { drinks.strDrink }
-                    </span>
-                  </div>
+        </div>
+      </div>
+      <iframe
+        title="video"
+        data-testid="video"
+        width="320"
+        height="240"
+        src={ `https://www.youtube.com/embed/${link !== undefined && link.split('v=')[1]}` }
+      >
+        Your browser does not support the video tag.
+      </iframe>
+      <div className="carousel-container">
+        <h4>Side Dishes Recommendeds:</h4>
+        <br />
+        <div className="container">
+          <div className="carousel">
+            { drink && drink.slice(0, SIX).map((drinks, index) => (
+              <div
+                data-testid={ `${index}-recomendation-card` }
+                key={ index }
+                className="item"
+              >
+                <div className="image">
+                  <img src={ drinks.strDrinkThumb } alt="" />
                 </div>
-              )) }
-            </div>
+                <div className="info">
+                  <span
+                    data-testid={ `${index}-recomendation-title` }
+                    className="name"
+                  >
+                    { drinks.strDrink }
+                  </span>
+                </div>
+              </div>
+            )) }
           </div>
         </div>
       </div>
@@ -200,7 +205,7 @@ export default function FoodRecipe(props) {
                 : 'Start Recipe' }
             </button>)}
       </Link>
-    </>
+    </div>
   );
 }
 

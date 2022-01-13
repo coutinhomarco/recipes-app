@@ -18,7 +18,7 @@ export default function Ingredients(props) {
 
   return (
     <>
-      <h4 className="ul-left">
+      <h4 id="ingredients-title" className="ul-left">
         Ingredients:
         { ' ' }
       </h4>

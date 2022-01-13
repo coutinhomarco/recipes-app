@@ -135,17 +135,13 @@ export default function DrinkRecipe(props) {
         </button>
       </div>
       <h4 data-testid="recipe-category">
-        <p>
-          Category:
-        </p>
+        Category:
       </h4>
-      { ' ' }
       <p>{strAlcoholic}</p>
 
       <Ingredients drinkRecipe={ Object.entries(drinkRecipe) } />
       <span data-testid="instructions">
         <h4 className="instruction">Instructions:</h4>
-        { ' ' }
         <p id="instructions-p">{ strInstructions }</p>
       </span>
       <div className="carousel-container">
