@@ -6,9 +6,9 @@ Projeto final do módulo de Front End, feito em grupo durante curso de Desenvolv
 <h4>Realizado com intuito consolidar todos conhecimentos adquiridos desde o módulo de Fundamentos até o final de Front End.</h4>
 <hr>
 <ul>
-  <li>Projeto exige todo aprendizado adquirido nos passados 6 meses de curso</li>
-  <li>Projeto realizado em grupo, desenvolvendo em pair-programming e dojo</li>
-  <li>Controle dos estados com Hooks e Context API</li>
+  <li>Projeto realizado em grupo, desenvolvendo em pair-programming e coding dojo</li>
+  <li>Controle de estados via Hooks e Context API</li>
+  <li>Salva alguns dados do usuário em localStorage, como email, receitas favoritas e receitas feitas</li>
   <li>Todo CSS feito à mão</li>
   <li>Utiliza 2 diferentes API's, uma para comidas e outra para bebidas</li>
 </ul>
